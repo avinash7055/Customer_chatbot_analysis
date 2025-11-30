@@ -1,0 +1,156 @@
+{
+  "total_queries": 6539,
+  "n_topics": 10,
+  "topics": [
+    {
+      "rank": 1,
+      "cluster_id": 32,
+      "topic_name": "Account Switching",
+      "description": "Customers need assistance switching between existing accounts",
+      "count": 308,
+      "percentage": 4.710200336442881,
+      "representative_queries": [
+        "acn ya help me creating a new online account",
+        "can you help me switching to another account?",
+        "help me open a new account",
+        "how could I use another account?",
+        "I do not know how I can open a new user account"
+      ]
+    },
+    {
+      "rank": 2,
+      "cluster_id": 2,
+      "topic_name": "Delivery Options",
+      "description": "Customers are seeking information on available delivery options",
+      "count": 237,
+      "percentage": 3.6244074017433863,
+      "representative_queries": [
+        "assistance checking the delivery options",
+        "can you show me the options for delivery?",
+        "could you show me the options for delivery?",
+        "help me to check what delivery options you offer",
+        "how to check what delivery options I can choose?"
+      ]
+    },
+    {
+      "rank": 3,
+      "cluster_id": 3,
+      "topic_name": "Shipping Address Update",
+      "description": "Customers need assistance updating their shipping address",
+      "count": 229,
+      "percentage": 3.5020645358617526,
+      "representative_queries": [
+        "assistance changing my shipping address",
+        "change the shipping address",
+        "help me changing my delivery address",
+        "I am trying to edit my address",
+        "I don't know how to change my shipping address"
+      ]
+    },
+    {
+      "rank": 4,
+      "cluster_id": 6,
+      "topic_name": "Invoice Retrieval",
+      "description": "Customers need assistance finding past invoices",
+      "count": 226,
+      "percentage": 3.45618596115614,
+      "representative_queries": [
+        "assistance getting the invoices from eight months ago",
+        "can you help me to get the invoices from December?",
+        "could you help me get the invoice from September?",
+        "getting invoice from eleven months ago",
+        "how could I find the invoice from last month?"
+      ]
+    },
+    {
+      "rank": 5,
+      "cluster_id": 18,
+      "topic_name": "Purchase Assistance",
+      "description": "Customers need help with the purchasing process",
+      "count": 222,
+      "percentage": 3.3950145282153232,
+      "representative_queries": [
+        "assistance buying an item",
+        "can you help me to buy an item?",
+        "help me to buy some of your item",
+        "how to buy some items?",
+        "I do not know what I have to do to make a purchase"
+      ]
+    },
+    {
+      "rank": 6,
+      "cluster_id": 27,
+      "topic_name": "Order Cancellation",
+      "description": "Customers need assistance canceling their orders",
+      "count": 212,
+      "percentage": 3.2420859458632814,
+      "representative_queries": [
+        "assistance canceling my last order",
+        "canceling order",
+        "help me canceling my last order",
+        "how can I cancel an order I made?",
+        "I do not know how I could cancel an order"
+      ]
+    },
+    {
+      "rank": 7,
+      "cluster_id": 46,
+      "topic_name": "Refund Assistance",
+      "description": "Customers need help with refund-related queries and processes",
+      "count": 180,
+      "percentage": 2.752714482336749,
+      "representative_queries": [
+        "assistance getting a refund",
+        "could you help me getting refunds of money?",
+        "help me to get a refund of money",
+        "how to get a refund of money?",
+        "I do not know what I have to do to get a refund"
+      ]
+    },
+    {
+      "rank": 8,
+      "cluster_id": 37,
+      "topic_name": "Order Status and Changes",
+      "description": "Customers need assistance with checking order status and making changes to their orders",
+      "count": 173,
+      "percentage": 2.6456644746903195,
+      "representative_queries": [
+        "adding product to last order",
+        "can you help me to change the last order I made?",
+        "help me checking the status of my order",
+        "how could I get information about order changes?",
+        "I do not know how I could check the status of my order"
+      ]
+    },
+    {
+      "rank": 9,
+      "cluster_id": 15,
+      "topic_name": "Delivery Timeline",
+      "description": "Customers want to know when their items will arrive",
+      "count": 160,
+      "percentage": 2.4468573176326656,
+      "representative_queries": [
+        "assistance checking how long the delivery takes",
+        "can you help me to check how soon can I expect the delivery?",
+        "could you show me how long the delivery takes?",
+        "help me to check how soon can I expect the item",
+        "I am calling to check when my item is going to arrive"
+      ]
+    },
+    {
+      "rank": 10,
+      "cluster_id": 8,
+      "topic_name": "Shipping Address Update",
+      "description": "Customers need assistance updating their shipping address",
+      "count": 152,
+      "percentage": 2.3245144517510323,
+      "representative_queries": [
+        "assistance setting a different shipping address up",
+        "could you help me set a different shipping address up?",
+        "help me to set up a different shipping address",
+        "how to set up a different shipping address?",
+        "I do not know how I can set up another shipping address"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+# Core LLM - REQUIRED
+groq
+
+# Embeddings and Clustering - REQUIRED
+sentence-transformers
+umap-learn
+hdbscan
+
+# Data Processing - REQUIRED
+pandas
+numpy
+openpyxl
+
+# Machine Learning - REQUIRED
+scikit-learn
+
+# Dashboard - REQUIRED
+streamlit
+plotly
+
+# Workflow Orchestration - REQUIRED
+prefect
+
+# Data Quality - REQUIRED
+pandera
+
+# NLP - REQUIRED
+spacy
+
+# Utilities - REQUIRED
+python-dotenv
+tqdm
+
+# Web Application - REQUIRED
+fastapi
+uvicorn[standard]
+python-multipart
+
+# NOTE: Jupyter removed due to Windows Long Path issues
+# If you need Jupyter, enable Windows Long Paths:
+# https://pip.pypa.io/warnings/enable-long-paths

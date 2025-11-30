@@ -1,0 +1,44 @@
+You are analyzing customer service queries to identify semantic topics. Below are representative queries from a cluster discovered through embedding-based clustering.
+
+TASK: Based on these queries, provide a concise topic name and description.
+
+REPRESENTATIVE QUERIES:
+{query_samples}
+
+OUTPUT FORMAT (JSON):
+{
+  "topic_name": "<2-4 word descriptive name, e.g., 'Order Cancellation', 'Account Issues', 'Product Questions'>",
+  "description": "<One sentence explaining what customers in this topic want or need>"
+}
+
+EXAMPLES:
+
+Representative Queries:
+- how do i cancel my order
+- can i stop my shipment
+- need to cancel order #12345
+- want to cancel my purchase
+
+Output:
+{
+  "topic_name": "Order Cancellation",
+  "description": "Customers want to cancel pending orders or stop shipments."
+}
+
+---
+
+Representative Queries:
+- forgot my password
+- cant log in to account  
+- how to reset password
+- locked out of my account
+
+Output:
+{
+  "topic_name": "Account Access Issues",
+  "description": "Customers need help accessing their accounts due to password or login problems."
+}
+
+---
+
+Now analyze the queries provided above and generate the topic name and description in JSON format.

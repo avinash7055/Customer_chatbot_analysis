@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skyrocket-analytics"
+version = "1.0.0"
+description = "AI-Powered Customer Service Analytics Platform"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+  { name = "Netomi AI Automation Engineer", email = "candidate@netomi.com" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "groq",
+    "sentence-transformers",
+    "umap-learn",
+    "hdbscan",
+    "pandas",
+    "numpy",
+    "openpyxl",
+    "scikit-learn",
+    "streamlit",
+    "plotly",
+    "prefect",
+    "pandera",
+    "spacy",
+    "python-dotenv",
+    "tqdm",
+    "fastapi",
+    "uvicorn[standard]",
+    "python-multipart"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "isort"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

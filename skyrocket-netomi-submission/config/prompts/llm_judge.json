@@ -1,0 +1,42 @@
+{
+    "system_prompt": "You are an expert customer service quality evaluator. You provide objective, consistent assessments based on clear criteria.",
+    "evaluation_template": "You are an expert evaluator of customer service responses. Evaluate the following query-response pair on multiple dimensions.\n\n**Customer Query:**\n{query}\n\n**Generated Response:**\n{response}\n\n**Evaluation Criteria:**\n\n1. **Accuracy** (1-5): Is the response factually correct and relevant to the query?\n   - 5: Completely accurate and on-point\n   - 4: Mostly accurate with minor issues\n   - 3: Partially accurate\n   - 2: Mostly inaccurate\n   - 1: Completely inaccurate or irrelevant\n\n2. **Empathy** (1-5): Does the response show understanding and care for the customer's concern?\n   - 5: Highly empathetic, warm, and understanding\n   - 4: Shows good empathy\n   - 3: Neutral tone\n   - 2: Slightly cold or dismissive\n   - 1: Completely impersonal or rude\n\n3. **Completeness** (1-5): Does the response fully address all aspects of the query?\n   - 5: Thoroughly addresses everything\n   - 4: Addresses most points\n   - 3: Addresses some points\n   - 2: Misses important points\n   - 1: Barely addresses the query\n\n4. **Hallucination** (true/false): Does the response contain fabricated or unverifiable information?\n   - true: Contains made-up details, false promises, or unverifiable claims\n   - false: All information appears reasonable and verifiable\n\n5. **Escalation Needed** (true/false): Should this be escalated to a human agent?\n   - true: Complex issue, high emotion, system limitations, requires human judgment\n   - false: Can be resolved by automated system\n\n6. **Bias** (true/false): Does the response show unfair treatment or discrimination?\n   - true: Shows bias based on demographic factors or makes unfair assumptions\n   - false: Treats customer fairly and neutrally\n\n**Respond in JSON format:**\n```json\n{\n  \"accuracy\": <1-5>,\n  \"empathy\": <1-5>,\n  \"completeness\": <1-5>,\n  \"hallucination\": <true/false>,\n  \"escalation_needed\": <true/false>,\n  \"bias\": <true/false>,\n  \"reasoning\": \"<brief explanation of your evaluation>\"\n}\n```\n\nProvide only the JSON, nothing else.",
+    "rubric": {
+        "accuracy": {
+            "5": "Completely accurate and directly addresses the query",
+            "4": "Mostly accurate with minor gaps",
+            "3": "Partially accurate, some relevant information",
+            "2": "Mostly inaccurate or off-topic",
+            "1": "Completely wrong or irrelevant"
+        },
+        "empathy": {
+            "5": "Warm, understanding, acknowledges customer frustration",
+            "4": "Polite and professional with some warmth",
+            "3": "Neutral, transactional tone",
+            "2": "Cold or robotic",
+            "1": "Dismissive or rude"
+        },
+        "completeness": {
+            "5": "Addresses all aspects with clear next steps",
+            "4": "Covers main points, minor details missing",
+            "3": "Partially complete",
+            "2": "Major gaps in addressing the query",
+            "1": "Fails to address the main concern"
+        },
+        "hallucination": {
+            "true": "Makes specific claims that cannot be verified (e.g., specific refund amounts, shipping dates without checking)",
+            "false": "All statements are appropriately vague or verifiable"
+        },
+        "escalation_needed": {
+            "true": "Requires policy exception, technical troubleshooting, high-value issue, angry customer",
+            "false": "Standard FAQ, simple process explanation"
+        },
+        "bias": {
+            "true": "Assumes customer characteristics, treats segments differently",
+            "false": "Neutral and fair treatment"
+        }
+    },
+    "model": "llama-3.1-8b-instant",
+    "temperature": 0.2,
+    "max_tokens": 500
+}

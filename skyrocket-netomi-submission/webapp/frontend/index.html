@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyRocket Analytics - AI-Powered Customer Service Intelligence</title>
+    <meta name="description"
+        content="Advanced AI-powered analytics platform for customer service optimization using Groq LLM, topic discovery, and automated response evaluation">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h1>SkyRocket Analytics</h1>
+                        <p>AI-Powered Intelligence</p>
+                    </div>
+                </div>
+                <nav class="nav">
+                    <a href="#upload" class="nav-link active">Upload</a>
+                    <a href="#dashboard" class="nav-link">Dashboard</a>
+                    <a href="#insights" class="nav-link">Insights</a>
+                    <div class="status-indicator">
+                        <div class="status-dot"></div>
+                        <span>System Ready</span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+
+            <!-- Hero Section -->
+            <section id="upload" class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M8 1L10.5 6L16 7L12 11L13 16L8 13.5L3 16L4 11L0 7L5.5 6L8 1Z"
+                                fill="currentColor" />
+                        </svg>
+                        <span>Powered by Groq LLM</span>
+                    </div>
+                    <h2 class="hero-title">Transform Customer Service with AI</h2>
+                    <p class="hero-subtitle">Upload your customer data and unlock powerful insights with advanced topic
+                        discovery, entity extraction, and automated response evaluation</p>
+                </div>
+
+                <!-- Upload Card -->
+                <div class="upload-card" id="uploadCard">
+                    <div class="upload-zone" id="uploadZone">
+                        <div class="upload-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M17 8L12 3L7 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <h3>Drop your Excel file here</h3>
+                        <p>or click to browse</p>
+                        <div class="upload-info">
+                            <span>Supports: .xlsx, .csv</span>
+                            <span>Max size: 50MB</span>
+                        </div>
+                        <input type="file" id="fileInput" accept=".xlsx,.csv" hidden>
+                        <button class="btn btn-primary" id="browseBtn">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                            Browse Files
+                        </button>
+                    </div>
+
+                    <!-- Progress Section -->
+                    <div class="progress-section hidden" id="progressSection">
+                        <div class="progress-header">
+                            <div class="progress-icon">
+                                <div class="spinner"></div>
+                            </div>
+                            <div class="progress-text">
+                                <h3 id="progressTitle">Analyzing your data...</h3>
+                                <p id="progressStep">Starting analysis...</p>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-percentage" id="progressPercentage">0%</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="dashboard-section hidden">
+                <div class="section-header">
+                    <h2>Analytics Dashboard</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary" id="downloadBtn">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M17 13V17H3V13M14 10L10 14M10 14L6 10M10 14V2" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            Download Report
+                        </button>
+                        <button class="btn btn-secondary" id="newAnalysisBtn">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 4V16M4 10H16" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                            New Analysis
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Key Insights -->
+                <div class="insights-section mb-8">
+                    <div class="insights-container" id="keyInsights">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <div class="kpi-icon kpi-icon-primary">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" />
+                                <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <div class="kpi-content">
+                            <p class="kpi-label">Total Queries</p>
+                            <h3 class="kpi-value" id="totalQueries">0</h3>
+                            <span class="kpi-change positive">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path d="M6 10V2M2 6L6 2L10 6" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                                100% analyzed
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon kpi-icon-success">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M22 11.08V12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C15.3 2 18.2 3.5 20 6"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div class="kpi-content">
+                            <p class="kpi-label">Containment Rate</p>
+                            <h3 class="kpi-value" id="containmentRate">0%</h3>
+                            <span class="kpi-change positive">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path d="M6 10V2M2 6L6 2L10 6" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                                Target: 85%
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon kpi-icon-warning">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" />
+                                <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <div class="kpi-content">
+                            <p class="kpi-label">Topics Discovered</p>
+                            <h3 class="kpi-value" id="topicsCount">0</h3>
+                            <span class="kpi-change neutral">
+                                AI-powered clustering
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="kpi-card">
+                        <div class="kpi-icon kpi-icon-info">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z"
+                                    stroke="currentColor" stroke-width="2" />
+                                <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <div class="kpi-content">
+                            <p class="kpi-label">Avg Quality Score</p>
+                            <h3 class="kpi-value" id="qualityScore">0.0</h3>
+                            <span class="kpi-change positive">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path d="M6 10V2M2 6L6 2L10 6" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                                Out of 5.0
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Grid -->
+                <div class="charts-grid">
+                    <!-- Topic Distribution -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Topic Distribution</h3>
+                            <div class="chart-legend" id="topicLegend"></div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="topicChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Quality Metrics -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Quality Metrics</h3>
+                            <p class="chart-subtitle">Response evaluation scores</p>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="qualityChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topics Table -->
+                <div class="table-card">
+                    <div class="table-header">
+                        <h3>Discovered Topics</h3>
+                        <div class="table-search">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="2" />
+                                <path d="M14 14L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            </svg>
+                            <input type="text" placeholder="Search topics..." id="topicSearch">
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table" id="topicsTable">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Topic Name</th>
+                                    <th>Description</th>
+                                    <th>Volume</th>
+                                    <th>Percentage</th>
+                                    <th>Examples</th>
+                                </tr>
+                            </thead>
+                            <tbody id="topicsTableBody">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Entity Insights -->
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <div class="insight-header">
+                            <h3>Entity Extraction</h3>
+                            <span class="insight-badge">AI-Powered</span>
+                        </div>
+                        <div class="entity-list" id="entityList">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="insight-card">
+                        <div class="insight-header">
+                            <h3>Quality Insights</h3>
+                            <span class="insight-badge">LLM Judge</span>
+                        </div>
+                        <div class="quality-metrics" id="qualityMetrics">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 SkyRocket Analytics. Powered by Groq LLM.</p>
+                <div class="footer-links">
+                    <a href="#">Documentation</a>
+                    <a href="#">API</a>
+                    <a href="#">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

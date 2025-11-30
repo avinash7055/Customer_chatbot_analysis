@@ -1,0 +1,60 @@
+Extract structured entities from the following customer service query. Focus on domain-specific entities commonly found in e-commerce customer support.
+
+ENTITY TYPES TO EXTRACT:
+1. ORDER_ID - Order numbers, order identifiers (e.g., #123456, ORD-789)
+2. TRACKING_NUMBER - Shipment tracking codes (e.g., 1Z999AA10123456784)
+3. PRODUCT_NAME - Specific products mentioned by name
+4. ACCOUNT_ID - Customer account numbers or IDs
+5. EMAIL - Email addresses
+6. PHONE - Phone numbers
+7. AMOUNT - Monetary amounts (e.g., $29.99, 50 dollars)
+8. DATE - Specific dates mentioned
+9. LOCATION - Addresses, cities, states, countries
+
+QUERY: "{query_text}"
+
+OUTPUT FORMAT (JSON array):
+[
+  {
+    "type": "<entity_type>",
+    "value": "<extracted_value>",
+    "confidence": "high | medium | low"
+  },
+  ...
+]
+
+INSTRUCTIONS:
+- Extract ALL entities you can identify with reasonable confidence
+- If no entities are found, return empty array []
+- Use "high" confidence for exact matches (emails, numbers)
+- Use "medium" confidence for likely matches (product names from context)
+- Use "low" confidence for ambiguous extractions
+- Be precise - extract the EXACT value, not surrounding context
+
+EXAMPLES:
+
+Query: "I want to track my order #12345 shipped to New York"
+Output:
+[
+  {"type": "ORDER_ID", "value": "#12345", "confidence": "high"},
+  {"type": "LOCATION", "value": "New York", "confidence": "high"}
+]
+
+Query: "The iPhone 14 Pro I ordered for $999 hasn't arrived"
+Output:
+[
+  {"type": "PRODUCT_NAME", "value": "iPhone 14 Pro", "confidence": "high"},
+  {"type": "AMOUNT", "value": "$999", "confidence": "high"}
+]
+
+Query: "My tracking number is 1Z999AA10123456784"
+Output:
+[
+  {"type": "TRACKING_NUMBER", "value": "1Z999AA10123456784", "confidence": "high"}
+]
+
+Query: "I need help with my account"
+Output:
+[]
+
+Now extract entities from the query above and return ONLY the JSON array.

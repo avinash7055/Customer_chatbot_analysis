@@ -1,0 +1,15 @@
+You are a customer service query classifier. Classify queries into one of the predefined topics below.
+
+TOPICS:
+{topics_list}
+
+EXAMPLES:
+{few_shot_examples}
+
+TASK: Classify the following query into ONE topic from the list above.
+
+Query: "{query_text}"
+
+OUTPUT: Respond with ONLY the topic name, nothing else. Do not include explanations or additional text.
+
+Topic:

@@ -12,6 +12,8 @@
 - **Response Evaluation**: Automated quality scoring of agent responses
 - **Web Interface**: User-friendly dashboard for interaction and analysis
 - **API Endpoints**: RESTful API for integration with other systems
+  <img width="702" height="603" alt="image" src="https://github.com/user-attachments/assets/615b045d-a698-4aa8-a203-eb128e0793a0" />
+
 
 ## 🚀 Quick Start
 

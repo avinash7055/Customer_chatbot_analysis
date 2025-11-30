@@ -6,7 +6,7 @@
 
 ## 🌟 Features
 
-- **AI-Powered Chat Analysis**: Advanced NLP to analyze customer service conversations
+- **AI-Powered Chat Analysis**: Advanced LLM to analyze customer service conversations
 - **Topic Discovery**: Automatic identification of key discussion topics
 - **Entity Extraction**: Hybrid approach combining rule-based and ML-based extraction
 - **Response Evaluation**: Automated quality scoring of agent responses

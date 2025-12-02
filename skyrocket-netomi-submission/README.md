@@ -4,7 +4,108 @@
 
 > A production-grade AI automation system for customer service optimization using **Groq LLM**, semantic topic discovery, hybrid entity extraction, and automated response evaluation.
 
----
+## 🌟 Features
+
+- **AI-Powered Chat Analysis**: Advanced NLP to analyze customer service conversations
+- **Topic Discovery**: Automatic identification of key discussion topics
+- **Entity Extraction**: Hybrid approach combining rule-based and ML-based extraction
+- **Response Evaluation**: Automated quality scoring of agent responses
+- **Web Interface**: User-friendly dashboard for interaction and analysis
+- **API Endpoints**: RESTful API for integration with other systems
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Python 3.8+
+- pip (Python package manager)
+- Git
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/avinash7055/Customer_chatbot_analysis.git
+   cd skyrocket-netomi-submission
+   ```
+
+2. **Set up a virtual environment** (recommended)
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: .\venv\Scripts\activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Set up environment variables**
+   Create a `.env` file in the root directory with your configuration:
+   ```env
+   # API Keys
+   OPENAI_API_KEY=your_openai_api_key
+   GROQ_API_KEY=your_groq_api_key
+   
+   # Application Settings
+   DEBUG=True
+   SECRET_KEY=your_secret_key
+   ```
+
+5. **Run the application**
+   ```bash
+   # Start the backend server
+   cd webapp/backend
+   python app.py
+   
+   # In a new terminal, start the frontend (if available)
+   cd ../frontend
+   # Follow frontend specific instructions
+   ```
+
+## 🏗️ Project Structure
+
+```
+src/
+├── skyrocket/                 # Core application code
+│   ├── core/                 # Core business logic
+│   ├── data/                 # Data processing modules
+│   ├── pipelines/            # Data processing pipelines
+│   └── utils/                # Utility functions
+
+webapp/
+├── backend/                  # Backend API server
+│   ├── app.py               # Main FastAPI application
+│   └── routes/              # API endpoints
+└── frontend/                # Frontend application (if applicable)
+
+data/                        # Data files (input/output)
+config/                      # Configuration files
+docs/                        # Documentation
+scripts/                     # Utility scripts
+```
+
+## 📚 Documentation
+
+For detailed documentation, please refer to the [docs](docs/) directory.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [Netomi](https://netomi.com/) for the opportunity
+- All open-source libraries and tools used in this project
 
 ## 📋 Table of Contents
 

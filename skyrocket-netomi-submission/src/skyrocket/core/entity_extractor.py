@@ -231,7 +231,7 @@ Now extract entities from the query above and return ONLY the JSON array."""
         
         return results
 
-def main():
+def main(max_batches: int = 5):
     import pandas as pd
     import datetime
     
@@ -299,10 +299,18 @@ def main():
         total_batches = (len(all_texts) + batch_size - 1) // batch_size
         print(f"\nStarting entity extraction with Groq LLM...")
         print(f"Total batches to process: {total_batches}")
+        if max_batches:
+             print(f"Limiting to first {max_batches} batches.")
         
         for i in range(0, len(all_texts), batch_size):
             batch = all_texts[i:i + batch_size]
             current_batch = i // batch_size + 1
+            
+            if max_batches is not None and current_batch > max_batches:
+                print(f"\nReached batch limit of {max_batches}. Stopping extraction to save cost.")
+                results["total_texts"] = i
+                break
+            
             print(f"\nProcessing batch {current_batch}/{total_batches} "
                   f"(items {i+1}-{min(i + batch_size, len(all_texts))})...")
             

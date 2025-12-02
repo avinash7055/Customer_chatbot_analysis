@@ -1,103 +1,52 @@
 {
-  "total_texts": 470,
-  "entity_types_found": 11,
-  "total_entities": 245,
+  "total_texts": 50,
+  "entity_types_found": 8,
+  "total_entities": 85,
   "entity_counts": {
-    "ORDER_ID": 73,
-    "PRODUCT_NAME": 25,
-    "PHONE": 14,
-    "WEBSITE": 7,
-    "ACCOUNT_ID": 36,
-    "DATE": 12,
-    "LOCATION": 53,
-    "WEBSITE_URL": 2,
-    "TRACKING_NUMBER": 14,
-    "AMOUNT": 2,
-    "EMAIL": 7
+    "ORDER_ID": 35,
+    "PRODUCT_NAME": 10,
+    "PHONE": 10,
+    "WEBSITE": 6,
+    "ACCOUNT_ID": 8,
+    "LOCATION": 12,
+    "DATE": 3,
+    "WEBSITE_URL": 1
   },
   "examples": {
     "ORDER_ID": [
-      "{{Order Number}}",
-      "Order Number",
-      "order details",
-      "order number or any other relevant information",
-      "invoice numbers",
-      "pin code",
-      "order number or transaction details",
-      "order number",
-      "#{{Invoice Number}}",
-      "ORDER or transaction numbers"
+      "{{Order Number}}"
     ],
     "PRODUCT_NAME": [
-      "early termination charge",
-      "articles",
-      "product",
-      "article",
-      "company newsletter",
-      "receipts",
-      "premium account",
-      "a product",
-      "non-receipt of goods",
-      "your product"
+      "puchase",
+      "several products",
+      "item {{Order Number}}",
+      "{{Online Order Interaction}}"
     ],
     "PHONE": [
-      "dedicated complaint hotline",
-      "phone number",
-      "phone",
-      "Customer Support Phone Number",
       "{{Customer Support Phone Number}}"
     ],
     "WEBSITE": [
       "{{Website URL}}"
     ],
     "ACCOUNT_ID": [
-      "username",
-      "account username or email address",
-      "Free",
-      "Account Type",
-      "Account Category",
-      "account access key",
-      "user account",
-      "{{Online Company Portal Info}}",
-      "pin code",
-      "your account"
-    ],
-    "DATE": [
-      "{{Date Range}}",
-      "the date",
-      "estimated delivery date",
-      "{{Customer Support Hours}}",
-      "date range"
+      "{{Online Company Portal Info}}"
     ],
     "LOCATION": [
-      "our website",
-      "us",
-      "platform",
-      "account settings",
-      "the Live Chat on our website",
-      "Customer Support Hours",
       "customer support team",
-      "shipping address",
-      "city",
-      "website"
+      "incorrect address",
+      "{{Online Order Interaction}}",
+      "correct address",
+      "website",
+      "Delivery Address",
+      "{{Website URL}}",
+      "{{Customer Support Hours}}",
+      "account settings"
+    ],
+    "DATE": [
+      "{{Customer Support Hours}}"
     ],
     "WEBSITE_URL": [
       "{{Website URL}}"
-    ],
-    "TRACKING_NUMBER": [
-      "tracking number",
-      "{{Tracking Number}}",
-      "Tracking Number"
-    ],
-    "AMOUNT": [
-      "${{Refund Amount}}",
-      "money"
-    ],
-    "EMAIL": [
-      "registered email address",
-      "your email address",
-      "email",
-      "email address"
     ]
   },
   "extractions": [
@@ -126,8 +75,256 @@
       "value": "{{Order Number}}"
     },
     {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
       "type": "ACCOUNT_ID",
-      "value": "your account"
+      "value": "{{Online Company Portal Info}}"
+    },
+    {
+      "type": "ACCOUNT_ID",
+      "value": "{{Online Company Portal Info}}"
+    },
+    {
+      "type": "PRODUCT_NAME",
+      "value": "{{Online Order Interaction}}"
+    },
+    {
+      "type": "PRODUCT_NAME",
+      "value": "{{Online Order Interaction}}"
+    },
+    {
+      "type": "PHONE",
+      "value": "{{Customer Support Phone Number}}"
+    },
+    {
+      "type": "WEBSITE",
+      "value": "{{Website URL}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ACCOUNT_ID",
+      "value": "{{Online Company Portal Info}}"
+    },
+    {
+      "type": "LOCATION",
+      "value": "{{Online Order Interaction}}"
+    },
+    {
+      "type": "LOCATION",
+      "value": "{{Online Order Interaction}}"
+    },
+    {
+      "type": "LOCATION",
+      "value": "{{Customer Support Hours}}"
+    },
+    {
+      "type": "LOCATION",
+      "value": "{{Website URL}}"
+    },
+    {
+      "type": "PHONE",
+      "value": "{{Customer Support Phone Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ACCOUNT_ID",
+      "value": "{{Online Company Portal Info}}"
+    },
+    {
+      "type": "PRODUCT_NAME",
+      "value": "{{Online Order Interaction}}"
+    },
+    {
+      "type": "PRODUCT_NAME",
+      "value": "{{Online Order Interaction}}"
+    },
+    {
+      "type": "PRODUCT_NAME",
+      "value": "{{Online Order Interaction}}"
+    },
+    {
+      "type": "PHONE",
+      "value": "{{Customer Support Phone Number}}"
+    },
+    {
+      "type": "WEBSITE",
+      "value": "{{Website URL}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ACCOUNT_ID",
+      "value": "{{Online Company Portal Info}}"
+    },
+    {
+      "type": "LOCATION",
+      "value": "{{Online Order Interaction}}"
+    },
+    {
+      "type": "LOCATION",
+      "value": "{{Online Order Interaction}}"
+    },
+    {
+      "type": "DATE",
+      "value": "{{Customer Support Hours}}"
+    },
+    {
+      "type": "PHONE",
+      "value": "{{Customer Support Phone Number}}"
+    },
+    {
+      "type": "WEBSITE",
+      "value": "{{Website URL}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ACCOUNT_ID",
+      "value": "{{Online Company Portal Info}}"
+    },
+    {
+      "type": "PHONE",
+      "value": "{{Customer Support Phone Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "PRODUCT_NAME",
+      "value": "item {{Order Number}}"
+    },
+    {
+      "type": "PHONE",
+      "value": "{{Customer Support Phone Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ACCOUNT_ID",
+      "value": "{{Online Company Portal Info}}"
+    },
+    {
+      "type": "PHONE",
+      "value": "{{Customer Support Phone Number}}"
+    },
+    {
+      "type": "WEBSITE",
+      "value": "{{Website URL}}"
+    },
+    {
+      "type": "DATE",
+      "value": "{{Customer Support Hours}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ORDER_ID",
+      "value": "{{Order Number}}"
+    },
+    {
+      "type": "ACCOUNT_ID",
+      "value": "{{Online Company Portal Info}}"
+    },
+    {
+      "type": "PRODUCT_NAME",
+      "value": "{{Online Order Interaction}}"
+    },
+    {
+      "type": "PRODUCT_NAME",
+      "value": "{{Online Order Interaction}}"
     },
     {
       "type": "PHONE",
@@ -140,326 +337,6 @@
     {
       "type": "WEBSITE",
       "value": "{{Website URL}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ACCOUNT_ID",
-      "value": "{{Online Company Portal Info}}"
-    },
-    {
-      "type": "LOCATION",
-      "value": "{{Online Order Interaction}}"
-    },
-    {
-      "type": "LOCATION",
-      "value": "{{Online Order Interaction}}"
-    },
-    {
-      "type": "LOCATION",
-      "value": "{{Customer Support Hours}}"
-    },
-    {
-      "type": "PHONE",
-      "value": "{{Customer Support Phone Number}}"
-    },
-    {
-      "type": "WEBSITE",
-      "value": "{{Website URL}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ACCOUNT_ID",
-      "value": "{{Online Company Portal Info}}"
-    },
-    {
-      "type": "PRODUCT_NAME",
-      "value": "{{Online Order Interaction}}"
-    },
-    {
-      "type": "PRODUCT_NAME",
-      "value": "{{Online Order Interaction}}"
-    },
-    {
-      "type": "PRODUCT_NAME",
-      "value": "{{Online Order Interaction}}"
-    },
-    {
-      "type": "PHONE",
-      "value": "{{Customer Support Phone Number}}"
-    },
-    {
-      "type": "WEBSITE",
-      "value": "{{Website URL}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "LOCATION",
-      "value": "Your Account"
-    },
-    {
-      "type": "LOCATION",
-      "value": "Online Company Portal Info"
-    },
-    {
-      "type": "LOCATION",
-      "value": "Online Order Interaction"
-    },
-    {
-      "type": "LOCATION",
-      "value": "Online Order Interaction"
-    },
-    {
-      "type": "LOCATION",
-      "value": "Online Order Interaction"
-    },
-    {
-      "type": "LOCATION",
-      "value": "Customer Support Hours"
-    },
-    {
-      "type": "LOCATION",
-      "value": "Customer Support Phone Number"
-    },
-    {
-      "type": "LOCATION",
-      "value": "Website URL"
-    },
-    {
-      "type": "PHONE",
-      "value": "{{Customer Support Phone Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "LOCATION",
-      "value": "Your Account"
-    },
-    {
-      "type": "LOCATION",
-      "value": "Online Company Portal Info"
-    },
-    {
-      "type": "LOCATION",
-      "value": "Online Order Interaction"
-    },
-    {
-      "type": "LOCATION",
-      "value": "Online Order Interaction"
-    },
-    {
-      "type": "LOCATION",
-      "value": "Customer Support Hours"
-    },
-    {
-      "type": "LOCATION",
-      "value": "Live Chat"
-    },
-    {
-      "type": "PHONE",
-      "value": "{{Customer Support Phone Number}}"
-    },
-    {
-      "type": "WEBSITE",
-      "value": "{{Website URL}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ACCOUNT_ID",
-      "value": "{{Online Company Portal Info}}"
-    },
-    {
-      "type": "LOCATION",
-      "value": "{{Online Order Interaction}}"
-    },
-    {
-      "type": "LOCATION",
-      "value": "{{Online Order Interaction}}"
-    },
-    {
-      "type": "LOCATION",
-      "value": "{{Customer Support Hours}}"
-    },
-    {
-      "type": "PHONE",
-      "value": "{{Customer Support Phone Number}}"
-    },
-    {
-      "type": "WEBSITE",
-      "value": "{{Website URL}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "LOCATION",
-      "value": "{{Online Company Portal Info}}"
-    },
-    {
-      "type": "LOCATION",
-      "value": "{{Online Order Interaction}}"
-    },
-    {
-      "type": "LOCATION",
-      "value": "{{Online Order Interaction}}"
-    },
-    {
-      "type": "LOCATION",
-      "value": "{{Customer Support Hours}}"
-    },
-    {
-      "type": "PHONE",
-      "value": "{{Customer Support Phone Number}}"
-    },
-    {
-      "type": "WEBSITE",
-      "value": "{{Website URL}}"
-    },
-    {
-      "type": "LOCATION",
-      "value": "our website/app"
-    },
-    {
-      "type": "LOCATION",
-      "value": "our website/app"
-    },
-    {
-      "type": "LOCATION",
-      "value": "the Live Chat on our website"
     },
     {
       "type": "ORDER_ID",
@@ -490,16 +367,28 @@
       "value": "several products"
     },
     {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
-    },
-    {
-      "type": "ORDER_ID",
-      "value": "{{Order Number}}"
+      "type": "LOCATION",
+      "value": "correct address"
     },
     {
       "type": "LOCATION",
-      "value": "address"
+      "value": "incorrect address"
+    },
+    {
+      "type": "LOCATION",
+      "value": "website"
+    },
+    {
+      "type": "LOCATION",
+      "value": "account settings"
+    },
+    {
+      "type": "LOCATION",
+      "value": "Delivery Address"
+    },
+    {
+      "type": "LOCATION",
+      "value": "customer support team"
     }
   ]
 }

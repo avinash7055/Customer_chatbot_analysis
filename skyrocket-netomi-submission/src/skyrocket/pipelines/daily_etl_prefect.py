@@ -7,8 +7,9 @@ from prefect.tasks import task_input_hash
 import pandera as pa
 from pandera import Column, DataFrameSchema, Check
 from dotenv import load_dotenv
-
+import json
 import sys
+
 sys.path.append(os.path.join(os.path.dirname(__file__), '../../..'))
 
 from skyrocket.core.topic_classifier import TopicClassifier
@@ -32,7 +33,7 @@ responses_schema = DataFrameSchema({
 
 @task(name="Extract New Queries", retries=3, retry_delay_seconds=60)
 def extract_new_queries(data_source: str, last_processed_date: datetime = None) -> pd.DataFrame:
-    print(f"📥 Extracting new queries from {data_source}")
+    print(f"Extracting new queries from {data_source}")
     
     df = pd.read_csv(data_source)
     
@@ -40,30 +41,29 @@ def extract_new_queries(data_source: str, last_processed_date: datetime = None) 
         if 'timestamp' in df.columns:
             df = df[pd.to_datetime(df['timestamp']) > last_processed_date]
     
-    print(f"   Extracted {len(df)} new queries")
+    print(f"Extracted {len(df)} new queries")
     return df
 
 @task(name="Validate Data Quality", retries=2)
 def validate_data_quality(df: pd.DataFrame, schema: DataFrameSchema) -> pd.DataFrame:
-    print(f"✅ Validating data quality for {len(df)} rows")
+    print(f"Validating data quality for {len(df)} rows")
     
     try:
         validated_df = schema.validate(df, lazy=True)
-        print(f"   ✓ All quality checks passed")
+        print("All quality checks passed")
         return validated_df
     except pa.errors.SchemaErrors as err:
-        print(f"   ⚠️  Quality issues found:")
+        print("Quality issues found:")
         print(err.failure_cases)
         
         clean_df = df.drop(err.failure_cases['index'].unique())
-        print(f"   Dropped {len(df) - len(clean_df)} invalid rows")
+        print(f"Dropped {len(df) - len(clean_df)} invalid rows")
         return clean_df
 
 @task(name="Classify Topics", cache_key_fn=task_input_hash, cache_expiration=timedelta(hours=24))
 def classify_topics(df: pd.DataFrame, topics_config_path: str) -> pd.DataFrame:
-    print(f"🏷️  Classifying {len(df)} queries into topics")
+    print(f"Classifying {len(df)} queries into topics")
     
-    import json
     with open(topics_config_path, 'r') as f:
         topics_config = json.load(f)
     
@@ -75,13 +75,13 @@ def classify_topics(df: pd.DataFrame, topics_config_path: str) -> pd.DataFrame:
         topics.append(result['topic_name'])
     
     df['topic'] = topics
-    print(f"   ✓ Classification complete")
+    print("Classification complete")
     
     return df
 
 @task(name="Extract Entities")
 def extract_entities(df: pd.DataFrame) -> pd.DataFrame:
-    print(f"🔍 Extracting entities from {len(df)} queries")
+    print(f"Extracting entities from {len(df)} queries")
     
     extractor = EntityExtractor()
     
@@ -92,13 +92,13 @@ def extract_entities(df: pd.DataFrame) -> pd.DataFrame:
         entities_list.append(entities_json)
     
     df['entities'] = [str(e) for e in entities_list]
-    print(f"   ✓ Entity extraction complete")
+    print("Entity extraction complete")
     
     return df
 
 @task(name="Evaluate Responses")
 def evaluate_responses(df: pd.DataFrame) -> pd.DataFrame:
-    print(f"⚖️  Evaluating {len(df)} responses")
+    print(f"Evaluating {len(df)} responses")
     
     judge = LLMJudge()
     
@@ -112,7 +112,7 @@ def evaluate_responses(df: pd.DataFrame) -> pd.DataFrame:
 
 @task(name="Calculate Metrics")
 def calculate_metrics(df: pd.DataFrame) -> Dict:
-    print(f"📊 Calculating business metrics")
+    print("Calculating business metrics")
     
     metrics = {
         "total_queries": len(df),
@@ -123,12 +123,12 @@ def calculate_metrics(df: pd.DataFrame) -> Dict:
         "timestamp": datetime.now().isoformat()
     }
     
-    print(f"   ✓ Metrics calculated")
+    print("Metrics calculated")
     return metrics
 
 @task(name="Check Quality Thresholds")
 def check_quality_thresholds(metrics: Dict) -> bool:
-    print(f"🎯 Checking quality thresholds")
+    print("Checking quality thresholds")
     
     thresholds = {
         "containment_rate": 0.70,
@@ -144,24 +144,24 @@ def check_quality_thresholds(metrics: Dict) -> bool:
             
             if metric == "hallucination_rate":
                 if value > threshold:
-                    alerts.append(f"⚠️  {metric}: {value:.2%} exceeds threshold {threshold:.2%}")
+                    alerts.append(f"{metric}: {value:.2%} exceeds threshold {threshold:.2%}")
             else:
                 if value < threshold:
-                    alerts.append(f"⚠️  {metric}: {value:.2%} below threshold {threshold:.2%}")
+                    alerts.append(f"{metric}: {value:.2%} below threshold {threshold:.2%}")
     
     if alerts:
-        print(f"   Quality issues detected:")
+        print("Quality issues detected:")
         for alert in alerts:
-            print(f"     {alert}")
+            print(f"  {alert}")
         
         return False
     else:
-        print(f"   ✓ All quality thresholds met")
+        print("All quality thresholds met")
         return True
 
 @task(name="Save Results")
 def save_results(df: pd.DataFrame, metrics: Dict, output_dir: str):
-    print(f"💾 Saving results to {output_dir}")
+    print(f"Saving results to {output_dir}")
     
     os.makedirs(output_dir, exist_ok=True)
     
@@ -170,11 +170,10 @@ def save_results(df: pd.DataFrame, metrics: Dict, output_dir: str):
     df.to_csv(data_path, index=False)
     
     metrics_path = os.path.join(output_dir, f"metrics_{timestamp}.json")
-    import json
     with open(metrics_path, 'w') as f:
         json.dump(metrics, f, indent=2)
     
-    print(f"   ✓ Saved to {output_dir}")
+    print(f"Saved to {output_dir}")
 
 @flow(name="Daily Customer Query Processing")
 def daily_customer_query_pipeline(
@@ -205,11 +204,11 @@ def daily_customer_query_pipeline(
     save_results(evaluated_df, metrics, output_dir)
     
     print("="*80)
-    print(f"✅ Pipeline complete - Quality: {'PASS' if quality_ok else 'FAIL'}")
+    print(f"Pipeline complete - Quality: {'PASS' if quality_ok else 'FAIL'}")
     print("="*80)
     
     return metrics
 
 if __name__ == "__main__":
     metrics = daily_customer_query_pipeline()
-    print(f"\n📊 Final Metrics: {metrics}")
+    print(f"\nFinal Metrics: {metrics}")
